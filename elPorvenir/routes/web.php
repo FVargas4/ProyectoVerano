@@ -28,3 +28,7 @@ Route::get('test-db', function(){
         die("Error" . $e);
     }
 });
+
+Route::get('/main', function(){
+    return view('layouts.main');
+});
