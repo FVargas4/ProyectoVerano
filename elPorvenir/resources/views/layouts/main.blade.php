@@ -35,7 +35,7 @@
 
     <body class='bg-dark'>
         <nav class="navbar navbar-expand-lg navbar-light bg-light py-0 shadow-sm">
-            <a class="navbar-brand mx-3" href="{{url('/main')}}">
+            <a class="navbar-brand mx-3" href="{{url('/home')}}">
                 <img src="{{asset('img/logoPEP.JPG')}}" class="img-fluid" alt="cuadro responsive" width="80"> 
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_target" aria-controls="#collapse_target" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
             <div class="collapse navbar-collapse" id="collapse_target">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item px-2">
-                        <a class="nav-link " href="{{url('/')}}">Pendientes</a>
+                        <a class="nav-link " href="{{url('/pendientes')}}">Pendientes</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link " href="{{url('/')}}">Instrucciones</a>

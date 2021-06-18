@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\COntrollers\LandingController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\PendienteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/pendientes', PendientesController::class);
+Route::resource('/pendientes', PendienteController::class);
 
 
 Route::get('test-db', function(){
