@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\COntrollers\LandingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +29,4 @@ Route::get('test-db', function(){
     }
 });
 
-Route::get('/main', function(){
-    return view('layouts.main');
-});
+Route::get('/home', [LandingController::class, 'home']);
