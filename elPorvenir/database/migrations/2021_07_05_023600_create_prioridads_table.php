@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInstruccionsTable extends Migration
+class CreatePrioridadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateInstruccionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('instruccions', function (Blueprint $table) {
+        Schema::create('prioridads', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->integer('prioridad');
-            $table->date('fecha_entrega');
-            $table->date('fecha_vencimiento');
-            $table->text('descripcion')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ class CreateInstruccionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instruccions');
+        Schema::dropIfExists('prioridads');
     }
 }

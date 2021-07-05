@@ -13,7 +13,7 @@
         <!-- Bootstrap Icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         {{-- iconos de google --}}
-        <link rel="stylesheet" href="{{ asset('css/material-icons.min.css') }}">
+        <link rel="stylesheet" href="{{ url('css/material-icons.min.css') }}">
         <!----Animaciones ----> 
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
@@ -34,7 +34,7 @@
     </head>
 
     <body class='bg-dark'>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light py-0 shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-0 shadow-sm">
             <a class="navbar-brand mx-3" href="{{url('/home')}}">
                 <img src="{{asset('img/logoPEP.JPG')}}" class="img-fluid" alt="cuadro responsive" width="80"> 
             </a>
