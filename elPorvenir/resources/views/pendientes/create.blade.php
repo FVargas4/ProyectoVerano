@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('pageTitle', "Crear Pendiente")
+
 @section('mainContent')
 
 

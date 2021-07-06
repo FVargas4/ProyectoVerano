@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pendiente;
+use App\Models\Prioridad;
+use App\Models\User;
 
 class PendienteController extends Controller
 {
@@ -13,7 +15,9 @@ class PendienteController extends Controller
     }
 
     public function create(){
-        return view('pendientes.create');
+        $prioridades = Prioridad::select('id', 'nombre')->get();
+        $usuarios = User::select('id', 'name')->get();
+        return view('pendientes.create', compact('prioridades', 'usuarios'));
     }
 
     public function store(Request $request)

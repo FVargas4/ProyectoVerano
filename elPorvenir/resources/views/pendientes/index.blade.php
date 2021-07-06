@@ -39,10 +39,15 @@
             <tbody id = "usuarios">
 
                 @foreach($pendientes as $item)
+                @php
+                    $dateEntrega = date_create($item->fecha_entrega);
+                    $dateVencimiento = date_create($item->fecha_vencimiento);
+
+                @endphp
                 <tr scope="row">
                     <td class="fs-6 text-wrap">{{ $item->nombre }}</td>
-                    <td class="fs-6 text-wrap">{{ $item->fecha_entrega}}</td>
-                    <td class="fs-6 text-wrap">{{ $item->fecha_vencimiento}}</td>
+                    <td class="fs-6 text-wrap">{{ date_format($dateEntrega, "d/M/Y")}}</td>
+                    <td class="fs-6 text-wrap">{{ date_format($dateVencimiento, "d/M/Y")}}</td>
                     <td class="fs-6 text-wrap">{{ $item->descripcion}}</td>
 
 

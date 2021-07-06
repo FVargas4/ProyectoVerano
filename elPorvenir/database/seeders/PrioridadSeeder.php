@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+use Illuminate\Support\Facades\DB;
+
 class PrioridadSeeder extends Seeder
 {
     /**
@@ -14,5 +16,20 @@ class PrioridadSeeder extends Seeder
     public function run()
     {
         //
+        DB::table("prioridads")->insert([
+            //id,rol,descripcion, created_at(N), updated_at(N)
+            [
+                "id" => "1",
+                "nombre" => "Alta",
+            ],  
+            [
+                "id" => "2",
+                "nombre" => "Media",
+            ], 
+            [
+                "id" => "3",
+                "nombre" => "Baja",
+            ], 
+        ]);
     }
 }

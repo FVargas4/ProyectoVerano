@@ -23,24 +23,44 @@
 
             <div class="form-group">
 
-                <label for="nombre" class="form-label fs-5 px-0">Nombre<span aria-hidden="true"
+                <label for="nombre" class="form-label fs-5 px-0">Ingresa el titulo del pendiente<span aria-hidden="true"
                         class="required text-danger">*</span></label>
                 <input type="text" placeholder="Ingresa el Nombre" class="form-control" name="nombre"
                     @if($modo=='Editar' || $modo=='Consultar' ) value="{{$pendiente->nombre}}" @else @endif id="nombre"
                     <?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
                 <br>
-
+                <div class="row">
+                <div class='col'>
                 <div class="mb-3 form-group form-outline">
-                    <label for="area_id" class="px-0">Area desde la que se reporta: <span aria-hidden="true" class="required text-danger" >*</span></label>
-                    <select class="form-control" id="area_id" name="area_id"<?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
-                        <option selected>Selecciona a un area</option>
-                        @foreach($areasList as $item)
-                        <option value="{{$item -> id}}" @if($modo != 'Crear') @if($item->id == $reporte->area_id) selected @else @endif @endif >{{$item -> area}}</option>
+                    <label for="prioridad_id" class="px-0">Selecciona el nivel de prioridad: <span aria-hidden="true" class="required text-danger" >*</span></label>
+                    <select class="form-control" id="prioridad_id" name="prioridad_id"<?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
+                        <option selected>Selecciona a una prioridad</option>
+                        @foreach($prioridades as $item)
+                            <option value="{{$item -> id}}" @if($modo != 'Crear') @if($item->id == $prioridad->id) selected @else @endif @endif>{{$item -> nombre}}</option>
+
                         @endforeach
+                        
                     </select>
                 </div>
-
+                </div>
+                
+                <div class='col'>
                 <div class="mb-3 form-group form-outline">
+                    <label for="prioridad_id" class="px-0">Selecciona un usuario a quien se le asignara el pendiente: <span aria-hidden="true" class="required text-danger" >*</span></label>
+                    <select class="form-control" id="prioridad_id" name="prioridad_id"<?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
+                        <option selected>Selecciona a un usuario</option>
+                        @foreach($usuarios as $item)
+                            <option value="{{$item -> id}}" @if($modo != 'Crear') @if($item->id == $usuario->id) selected @else @endif @endif>{{$item -> name}}</option>
+
+                        @endforeach
+                        
+                    </select>
+                </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class='col'>
+                <div class="m-3 form-group form-outline">
                     <label for="fecha_entrega" class="form-label fs-5 px-0">Fecha de Asignación<span
                             aria-hidden="true" class="required text-danger">*</span></label>
                     <input type="date" name="fecha_entrega" id="fecha_entrega"
@@ -49,7 +69,10 @@
                         <?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
 
                 </div>
-                <div class="mb-3 form-group form-outline">
+                </div>
+                
+                <div class='col'>
+                <div class="m-3 form-group form-outline">
                     <label for="fecha_vencimiento" class="form-label fs-5 px-0">Fecha de Vencimiento<span aria-hidden="true"
                             class="required text-danger">*</span></label>
                     <input type="date" name="fecha_vencimiento" id="fecha_vencimiento"
@@ -58,7 +81,7 @@
                         <?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
 
                 </div>
-
+                </div>
                 <label for="descripcion" class="form-label fs-5 px-0" >Descripcion<span aria-hidden="true"
                             class="required text-danger">*</span></label>
                     <textarea class="form-control" name="descripcion" id="descripcion" height="400rem" @if($modo == 'Editar' || $modo == 'Consultar') value = "{{$pendiente->descripcion}}" @else @endif  <?php if ($modo == 'Consultar'){ ?> disabled <?php } ?> > </textarea>
