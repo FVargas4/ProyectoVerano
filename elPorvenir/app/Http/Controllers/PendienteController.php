@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Pendiente;
 use App\Models\Prioridad;
 use App\Models\User;
+use App\Models\prioridad_pendientes;
+use App\Models\PendientesUsers;
 
 class PendienteController extends Controller
 {
@@ -26,9 +28,13 @@ class PendienteController extends Controller
          $campos=[
 
             'nombre'=>'required|string',
-            'telefono'=>'required|int',
             'fecha_entrega'=>'required|date',
             'fecha_vencimiento'=>'required|date',
+            'prioridad_id'=>'required|numeric',
+            'user_id'=>'required|numeric',
+            
+            
+
 
     ];
 
@@ -39,15 +45,22 @@ class PendienteController extends Controller
     ];
 
     $this->validate($request,$campos,$mensaje);
-
-
  
     //
-    $datosPendiente = request()->except('_token');
+    $datosPendiente = request()->except('_token', 'prioridad_id', 'user_id');
 
     //return response()->json($datosPendiente);
     
-    Pendiente::insert($datosPendiente);
+    $pendiente = Pendiente::insertGetId($datosPendiente);
+
+    $prioridad = request('prioridad_id');
+
+    $usuario = request('user_id');
+
+    prioridad_pendientes::insert(['prioridad_id' => $prioridad, 'pendiente_id' => $pendiente]);
+
+    PendientesUsers::insert(['pendiente_id' => $pendiente, 'user_id' => $usuario]);
+
 
     return redirect('pendientes')->with('mensaje','Pendiente registrado con éxito');
     }

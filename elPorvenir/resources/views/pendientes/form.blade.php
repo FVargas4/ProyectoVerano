@@ -46,8 +46,8 @@
                 
                 <div class='col'>
                 <div class="mb-3 form-group form-outline">
-                    <label for="prioridad_id" class="px-0">Selecciona un usuario a quien se le asignara el pendiente: <span aria-hidden="true" class="required text-danger" >*</span></label>
-                    <select class="form-control" id="prioridad_id" name="prioridad_id"<?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
+                    <label for="user_id" class="px-0">Selecciona un usuario a quien se le asignara el pendiente: <span aria-hidden="true" class="required text-danger" >*</span></label>
+                    <select class="form-control" id="user_id" name="user_id"<?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
                         <option selected>Selecciona a un usuario</option>
                         @foreach($usuarios as $item)
                             <option value="{{$item -> id}}" @if($modo != 'Crear') @if($item->id == $usuario->id) selected @else @endif @endif>{{$item -> name}}</option>
