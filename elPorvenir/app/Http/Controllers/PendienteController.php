@@ -65,4 +65,26 @@ class PendienteController extends Controller
     return redirect('pendientes')->with('mensaje','Pendiente registrado con éxito');
     }
 
+    public function show($id){
+        $pendiente = Pendiente::findOrFail($id);
+        $prioridad = prioridad_pendientes::select('prioridad_id')->where('pendiente_id', '=', $id)->get();
+        $usuario = PendientesUsers::select('user_id')->where('pendiente_id','=', $id)->get();
+        $prioridades = Prioridad::select('id', 'nombre')->get();
+        $usuarios = User::select('id', 'name')->get();
+        //dd($pendiente);
+        return view('pendientes.show', compact('prioridades', 'usuarios','pendiente', 'prioridad', 'usuario'));
+
+    }
+
+    public function edit($id){
+        $pendiente = Pendiente::findOrFail($id);
+        $prioridad = prioridad_pendientes::select('prioridad_id')->where('pendiente_id', '=', $id)->get();
+        $usuario = PendientesUsers::select('user_id')->where('pendiente_id','=', $id)->get();
+        $prioridades = Prioridad::select('id', 'nombre')->get();
+        $usuarios = User::select('id', 'name')->get();
+        //dd($usuario);
+        return view('pendientes.edit', compact('prioridades', 'usuarios','pendiente', 'prioridad', 'usuario'));
+
+    }
+
 }

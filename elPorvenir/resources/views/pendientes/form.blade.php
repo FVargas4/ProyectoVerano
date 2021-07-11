@@ -36,7 +36,7 @@
                     <select class="form-control" id="prioridad_id" name="prioridad_id"<?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
                         <option selected>Selecciona a una prioridad</option>
                         @foreach($prioridades as $item)
-                            <option value="{{$item -> id}}" @if($modo != 'Crear') @if($item->id == $prioridad->id) selected @else @endif @endif>{{$item -> nombre}}</option>
+                            <option value="{{$item -> id}}" @if($modo != 'Crear') @if($prioridad[0]->prioridad_id == $item->id) selected @else @endif @endif>{{$item -> nombre}}</option>
 
                         @endforeach
                         
@@ -50,7 +50,7 @@
                     <select class="form-control" id="user_id" name="user_id"<?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
                         <option selected>Selecciona a un usuario</option>
                         @foreach($usuarios as $item)
-                            <option value="{{$item -> id}}" @if($modo != 'Crear') @if($item->id == $usuario->id) selected @else @endif @endif>{{$item -> name}}</option>
+                            <option value="{{$item -> id}}" @if($modo != 'Crear') @if($item->id == $usuario[0]->user_id) selected @else @endif @endif>{{$item -> name}}</option>
 
                         @endforeach
                         
@@ -65,7 +65,7 @@
                             aria-hidden="true" class="required text-danger">*</span></label>
                     <input type="date" name="fecha_entrega" id="fecha_entrega"
                         class="form-control @error('fecha_entrega') border border-danger @enderror"
-                        @if($modo=='Editar' || $modo=='Consultar' ) value="{{$pendiente->fecha_nacimiento}}" @else @endif
+                        @if($modo=='Editar' || $modo=='Consultar' ) value="{{$pendiente->fecha_entrega}}" @else @endif
                         <?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
 
                 </div>
@@ -84,8 +84,7 @@
                 </div>
                 <label for="descripcion" class="form-label fs-5 px-0" >Descripcion<span aria-hidden="true"
                             class="required text-danger">*</span></label>
-                    <textarea class="form-control" name="descripcion" id="descripcion" height="400rem" @if($modo == 'Editar' || $modo == 'Consultar') value = "{{$pendiente->descripcion}}" @else @endif  <?php if ($modo == 'Consultar'){ ?> disabled <?php } ?> > </textarea>
-            
+                    <textarea class="form-control" name="descripcion" id="descripcion" height="400rem" @if ($modo == 'Consultar') disabled @endif> @if($modo=='Editar' || $modo=='Consultar') {{$pendiente->descripcion}} @endif </textarea>
 
 
                 @if ($modo != 'Consultar')

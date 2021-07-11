@@ -19,15 +19,16 @@ Route::get('/', function () {
 });
 
 Route::resource('/pendientes', PendienteController::class);
+Route::get('/pendientes/{id}/show', [PendienteController::class, 'show']);
 
 
-Route::get('test-db', function(){
+/*Route::get('test-db', function(){
     try{
        DB::connection() -> getPdo();
         echo "Conectado correctamente a " . DB::connection() -> getDatabaseName();
     }catch(\Exception $e){
         die("Error" . $e);
     }
-});
+});*/
 
 Route::get('/home', [LandingController::class, 'home']);
