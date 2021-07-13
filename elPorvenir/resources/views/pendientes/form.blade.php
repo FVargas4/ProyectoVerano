@@ -1,4 +1,3 @@
-
 <div class="d-flex align-items-center justify-content-center flex-column">
     <div class="p-4 responsive-container bg-light container my-5 shadow p-3 mb-5 bg-body rounded">
         <h1 class="fs-1 my-3 d-flex align-items-center justify-content-center">

@@ -1,7 +1,18 @@
 @extends('layouts.main')
 @section('pageTitle', "Pendientes")
 @section('mainContent')
-    <div class='bg-white container my-5 p-3 bg-light shadow-sm  bg-body rounded'>
+@if(Session::has('mensaje'))
+<div class="container">
+
+    <div class="alert alert-success alert-dismissible mt-4" role="alert">
+        {{ Session::get('mensaje')}}
+        <button type="button" class="btn Button_alert" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true" class="btn pull-right">&times;</span>
+        </button>
+    </div>
+</div>
+@endif
+    <div class='bg-white container my-4 p-3 bg-light shadow-sm  bg-body rounded'>
         <h1 class='text-center'>Pendientes</h1>
             <div class="table-responsive">
             <div class="table-responsive">    

@@ -87,4 +87,28 @@ class PendienteController extends Controller
 
     }
 
+    public function update(Request $request, $id){
+        
+        $datosPendiente = request()->except('_method', '_token', 'prioridad_id', 'user_id');
+        Pendiente::where('id', '=', $id)->update($datosPendiente);
+
+        $prioridad = request('prioridad_id');
+
+        $usuario = request('user_id');
+
+        prioridad_pendientes::where('pendiente_id', '=', $id)->update(array('prioridad_id' => $prioridad));
+
+        PendientesUsers::where('pendiente_id', '=', $id)->update(array('user_id' => $usuario));
+
+        return redirect('pendientes')->with('mensaje','Pendiente editado con éxito');
+    }
+
+    public function destroy($id)
+    {
+        
+        Pendiente::destroy($id);
+
+        return redirect('pendientes')->with('mensaje','Pendiente eliminado con éxito');
+    }
+
 }
