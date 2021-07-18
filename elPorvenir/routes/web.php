@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PendienteController;
+use App\Http\Controllers\InstruccionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Rutas para el CRUD de pendientes
 Route::resource('/pendientes', PendienteController::class);
 Route::get('/pendientes/{id}/show', [PendienteController::class, 'show']);
+
+//Rutas para el CRUD de instrucciones
+Route::resource('/instrucciones', InstruccionController::class);
+Route::get('/instrucciones/{id}/show', [InstruccionController::class, 'show']);
+
 
 
 /*Route::get('test-db', function(){
