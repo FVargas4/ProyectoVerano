@@ -1,14 +1,14 @@
 @extends('layouts.main')
 
-@section('pageTitle', "Crear Pendiente")
+@section('pageTitle', "Crear Instruccion")
 
 @section('mainContent')
 
 
-<form action="{{ url('/pendientes/')}}" method="post">
+<form action="{{ url('/instrucciones/')}}" method="post">
 
 @csrf
-@include('pendientes.form',['modo'=>'Crear']);
+@include('instrucciones.form',['modo'=>'Crear']);
 
 
 </form>

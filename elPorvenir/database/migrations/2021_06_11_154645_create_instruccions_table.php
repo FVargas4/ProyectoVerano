@@ -16,7 +16,6 @@ class CreateInstruccionsTable extends Migration
         Schema::create('instruccions', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->integer('prioridad');
             $table->date('fecha_entrega');
             $table->date('fecha_vencimiento');
             $table->text('descripcion')->nullable();

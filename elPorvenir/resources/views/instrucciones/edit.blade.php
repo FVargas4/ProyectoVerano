@@ -1,14 +1,14 @@
 @extends('layouts.main')
 
-@section('pageTitle', "Editar Pendiente")
+@section('pageTitle', "Editar Instrucción")
 
 @section('mainContent')
 
-<form action="{{ url('/pendientes/'.$pendiente->id) }}" method="post">
+<form action="{{ url('/instrucciones/'.$instruccion->id) }}" method="post">
 
     @csrf 
     {{ method_field('PATCH')}}
-    @include('pendientes.form',['modo'=>'Editar']);
+    @include('instrucciones.form',['modo'=>'Editar']);
 
 </form>
 

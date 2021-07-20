@@ -25,7 +25,7 @@
                 <label for="nombre" class="form-label fs-5 px-0">Ingresa el titulo de la instrucción<span aria-hidden="true"
                         class="required text-danger">*</span></label>
                 <input type="text" placeholder="Ingresa el Nombre" class="form-control" name="nombre"
-                    @if($modo=='Editar' || $modo=='Consultar' ) value="{{$pendiente->nombre}}" @else @endif id="nombre"
+                    @if($modo=='Editar' || $modo=='Consultar' ) value="{{$instruccion->nombre}}" @else @endif id="nombre"
                     <?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
                 <br>
                 <div class="row">
@@ -64,7 +64,7 @@
                             aria-hidden="true" class="required text-danger">*</span></label>
                     <input type="date" name="fecha_entrega" id="fecha_entrega"
                         class="form-control @error('fecha_entrega') border border-danger @enderror"
-                        @if($modo=='Editar' || $modo=='Consultar' ) value="{{$pendiente->fecha_entrega}}" @else @endif
+                        @if($modo=='Editar' || $modo=='Consultar' ) value="{{$instruccion->fecha_entrega}}" @else @endif
                         <?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
 
                 </div>
@@ -76,27 +76,38 @@
                             class="required text-danger">*</span></label>
                     <input type="date" name="fecha_vencimiento" id="fecha_vencimiento"
                         class="form-control @error('fecha_vencimiento') border border-danger @enderror" @if($modo=='Editar'
-                        || $modo=='Consultar' ) value="{{$pendiente->fecha_vencimiento}}" @else @endif
+                        || $modo=='Consultar' ) value="{{$instruccion->fecha_vencimiento}}" @else @endif
                         <?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
 
                 </div>
                 </div>
                 <label for="descripcion" class="form-label fs-5 px-0" >Descripcion<span aria-hidden="true"
                             class="required text-danger">*</span></label>
-                    <textarea class="form-control" name="descripcion" id="descripcion" height="400rem" @if ($modo == 'Consultar') disabled @endif> @if($modo=='Editar' || $modo=='Consultar') {{$pendiente->descripcion}} @endif </textarea>
+                    <textarea class="form-control" name="descripcion" id="descripcion" height="400rem" @if ($modo == 'Consultar') disabled @endif> @if($modo=='Editar' || $modo=='Consultar') {{$instruccion->descripcion}} @endif </textarea>
 
+                    <div class='row'>
+                        <div class='col'>
+                            <div class="px-4">
+                                <a href="{{url('instrucciones/')}}" class="btn btn-outline-danger w-100 mt-4">Regresar</a>
+                            </div>
+                        </div>
+                        @if ($modo != 'Consultar')
+                        
+                            <div class="col">
+                                <div class="px-4">
 
-                @if ($modo != 'Consultar')
-                <div class="px-4">
+                                    <input type="submit" class="btn btn-primary w-100 mt-4" value="{{($modo)}} instrucción">
 
-                    <input type="submit" class="btn btn-primary w-100 mt-4" value="{{($modo)}} datos">
+                                </div>
+                            </div>
+                        @else
+                            <div class="col">
 
-                </div>
-                @endif
-                <div class="px-4">
-                    <a href="{{url('instrucciones/')}}" class="btn bg-danger w-100 mt-4 text-white">Regresar</a>
-                </div>
-
+                            </div>
+                        @endif
+                        
+                        
+                    </div>
             </div>
 
         </div>

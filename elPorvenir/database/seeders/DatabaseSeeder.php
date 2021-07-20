@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,8 +19,10 @@ class DatabaseSeeder extends Seeder
             PrioridadSeeder::class,
             UsersSeeder::class,
             PendienteSeeder::class,
+            InstruccionSeeder::class,
             PrioridadPendientesSeeder::class,
             PendientesUsuariosSeeder::class,
+            InstruccionUserSeeder::class,
         ]);
     }
 }

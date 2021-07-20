@@ -8,6 +8,8 @@ use App\Models\Prioridad;
 use App\Models\User;
 use App\Models\prioridad_pendientes;
 use App\Models\PendientesUsers;
+use App\Models\InstruccionUser;
+use App\Models\prioridad_instruccions;
 
 class InstruccionController extends Controller
 {
@@ -19,7 +21,7 @@ class InstruccionController extends Controller
     public function create(){
         $prioridades = Prioridad::select('id', 'nombre')->get();
         $usuarios = User::select('id', 'name')->get();
-        return view('pendientes.create', compact('prioridades', 'usuarios'));
+        return view('instrucciones.create', compact('prioridades', 'usuarios'));
     }
 
     public function store(Request $request)
@@ -36,79 +38,80 @@ class InstruccionController extends Controller
             
 
 
-    ];
+        ];
 
-    $mensaje=[
+        $mensaje=[
 
-        'required'=>'El :attribute es requerido'
+            'required'=>'El :attribute es requerido'
 
-    ];
+        ];
 
-    $this->validate($request,$campos,$mensaje);
+        $this->validate($request,$campos,$mensaje);
  
-    //
-    $datosPendiente = request()->except('_token', 'prioridad_id', 'user_id');
+        //
+        $datosInstruccion = request()->except('_token', 'prioridad_id', 'user_id');
 
-    //return response()->json($datosPendiente);
+        //return response()->json($datosPendiente);
     
-    $pendiente = Pendiente::insertGetId($datosPendiente);
-
-    $prioridad = request('prioridad_id');
-
-    $usuario = request('user_id');
-
-    prioridad_pendientes::insert(['prioridad_id' => $prioridad, 'pendiente_id' => $pendiente]);
-
-    PendientesUsers::insert(['pendiente_id' => $pendiente, 'user_id' => $usuario]);
-
-
-    return redirect('pendientes')->with('mensaje','Pendiente registrado con éxito');
-    }
-
-    public function show($id){
-        $pendiente = Pendiente::findOrFail($id);
-        $prioridad = prioridad_pendientes::select('prioridad_id')->where('pendiente_id', '=', $id)->get();
-        $usuario = PendientesUsers::select('user_id')->where('pendiente_id','=', $id)->get();
-        $prioridades = Prioridad::select('id', 'nombre')->get();
-        $usuarios = User::select('id', 'name')->get();
-        //dd($pendiente);
-        return view('pendientes.show', compact('prioridades', 'usuarios','pendiente', 'prioridad', 'usuario'));
-
-    }
-
-    public function edit($id){
-        $pendiente = Pendiente::findOrFail($id);
-        $prioridad = prioridad_pendientes::select('prioridad_id')->where('pendiente_id', '=', $id)->get();
-        $usuario = PendientesUsers::select('user_id')->where('pendiente_id','=', $id)->get();
-        $prioridades = Prioridad::select('id', 'nombre')->get();
-        $usuarios = User::select('id', 'name')->get();
-        //dd($usuario);
-        return view('pendientes.edit', compact('prioridades', 'usuarios','pendiente', 'prioridad', 'usuario'));
-
-    }
-
-    public function update(Request $request, $id){
-        
-        $datosPendiente = request()->except('_method', '_token', 'prioridad_id', 'user_id');
-        Pendiente::where('id', '=', $id)->update($datosPendiente);
+        $instruccion = Instruccion::insertGetId($datosInstruccion);
 
         $prioridad = request('prioridad_id');
 
         $usuario = request('user_id');
 
-        prioridad_pendientes::where('pendiente_id', '=', $id)->update(array('prioridad_id' => $prioridad));
+        prioridad_instruccions::insert(['prioridad_id' => $prioridad, 'instruccion_id' => $instruccion]);
 
-        PendientesUsers::where('pendiente_id', '=', $id)->update(array('user_id' => $usuario));
+        InstruccionUser::insert(['instruccion_id' => $instruccion, 'user_id' => $usuario]);
 
-        return redirect('pendientes')->with('mensaje','Pendiente editado con éxito');
+
+        return redirect('instrucciones')->with('mensaje','Instrucción registrada con éxito');
+    }
+
+    public function show($id){
+        $instruccion = Instruccion::findOrFail($id);
+        $prioridad = prioridad_instruccions::select('prioridad_id')->where('instruccion_id', '=', $id)->get();
+        $usuario = InstruccionUser::select('user_id')->where('instruccion_id','=', $id)->get();
+        $prioridades = Prioridad::select('id', 'nombre')->get();
+        $usuarios = User::select('id', 'name')->get();
+        //dd($prioridad);
+        return view('instrucciones.show', compact('prioridades', 'usuarios','instruccion', 'prioridad', 'usuario'));
+
+    }
+
+    public function edit($id){
+        $instruccion = Instruccion::findOrFail($id);
+        $prioridad = prioridad_instruccions::select('prioridad_id')->where('instruccion_id', '=', $id)->get();
+        $usuario = InstruccionUser::select('user_id')->where('instruccion_id','=', $id)->get();
+        $prioridades = Prioridad::select('id', 'nombre')->get();
+        $usuarios = User::select('id', 'name')->get();
+        //dd($prioridad);
+        return view('instrucciones.edit', compact('prioridades', 'usuarios','instruccion', 'prioridad', 'usuario'));
+
+    }
+
+    public function update(Request $request, $id){
+        
+        //dd($request);
+        $datosInstruccion = request()->except('_method', '_token', 'prioridad_id', 'user_id');
+        Instruccion::where('id', '=', $id)->update($datosInstruccion);
+
+        $prioridad = request('prioridad_id');
+
+        $usuario = request('user_id');
+
+        prioridad_instruccions::where('instruccion_id', '=', $id)->update(array('prioridad_id' => $prioridad));
+
+        InstruccionUser::where('instruccion_id', '=', $id)->update(array('user_id' => $usuario));
+
+        return redirect('instrucciones')->with('mensaje','Instrucción editada con éxito');
     }
 
     public function destroy($id)
     {
         
-        Pendiente::destroy($id);
+        Instruccion::destroy($id);
 
-        return redirect('pendientes')->with('mensaje','Pendiente eliminado con éxito');
+        return redirect('instrucciones')->with('mensaje','Instruccion eliminada con éxito');
     }
 
 }

@@ -13,6 +13,15 @@
 </div>
 @endif
     <div class='bg-white container my-4 p-3 bg-light shadow-sm  bg-body rounded'>
+        <div class="d-flex justify-content-start my-3"> 
+            <a href="{{url('/')}}">
+                <button type="button" class="btn btn-outline-secondary btn-lg d-flex justify-content-center align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                </button>
+            </a>
+        </div>
         <h1 class='text-center'>Instrucciones</h1>
             <div class="table-responsive">
             <div class="table-responsive">    
@@ -24,7 +33,7 @@
             </div>
             <div class="p-2">
 
-                <a href="{{url('pendientes/create')}}" class="btn btn-success ">
+                <a href="{{url('instrucciones/create')}}" class="btn btn-success ">
                     <button type="button" class="btn btn-success m-0 p-0 d-flex justify-content-center align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -101,9 +110,9 @@
                                         </div>
 
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger"
+                                            <button type="button" class="btn btn-outline-secondary"
                                                 data-dismiss="modal">Cancelar</button>
-                                            <button type="submit" class="btn button-donar">Eliminar</button>
+                                            <button type="submit" class="btn btn-danger">Eliminar</button>
 
 
 

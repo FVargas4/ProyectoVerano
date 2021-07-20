@@ -84,19 +84,29 @@
                 <label for="descripcion" class="form-label fs-5 px-0" >Descripcion<span aria-hidden="true"
                             class="required text-danger">*</span></label>
                     <textarea class="form-control" name="descripcion" id="descripcion" height="400rem" @if ($modo == 'Consultar') disabled @endif> @if($modo=='Editar' || $modo=='Consultar') {{$pendiente->descripcion}} @endif </textarea>
+                    <div class='row'>
+                        <div class='col'>
+                            <div class="px-4">
+                                <a href="{{url('pendientes/')}}" class="btn btn-outline-danger w-100 mt-4">Regresar</a>
+                            </div>
+                        </div>
+                        @if ($modo != 'Consultar')
+                        
+                            <div class="col">
+                                <div class="px-4">
 
+                                    <input type="submit" class="btn btn-primary w-100 mt-4" value="{{($modo)}} pendientes">
 
-                @if ($modo != 'Consultar')
-                <div class="px-4">
+                                </div>
+                            </div>
+                        @else
+                            <div class="col">
 
-                    <input type="submit" class="btn btn-primary w-100 mt-4" value="{{($modo)}} datos">
-
-                </div>
-                @endif
-                <div class="px-4">
-                    <a href="{{url('pendientes/')}}" class="btn bg-danger w-100 mt-4 text-white">Regresar</a>
-                </div>
-
+                            </div>
+                        @endif
+                        
+                        
+                    </div>
             </div>
 
         </div>

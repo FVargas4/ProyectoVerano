@@ -48,7 +48,7 @@
                         <a class="nav-link " href="{{url('/pendientes')}}">Pendientes</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link " href="{{url('/')}}">Instrucciones</a>
+                        <a class="nav-link " href="{{url('/instrucciones')}}">Instrucciones</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link" href="https://drive.google.com/drive/u/2/folders/15ooSk6lyx34iuYV2k-WEvrinTOLzwtrQ" target='_blank'>Acceder a Drive</a>
