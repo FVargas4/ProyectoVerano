@@ -1,6 +1,4 @@
-@php
-dd($pendiente);
-@endphp
+
 
 <div class="d-flex align-items-center justify-content-center flex-column">
     <div class="p-4 responsive-container bg-light container my-5 shadow p-3 mb-5 bg-body rounded">
@@ -29,7 +27,7 @@ dd($pendiente);
                 <label for="nombre" class="form-label fs-5 px-0">Ingresa el titulo del pendiente<span aria-hidden="true"
                         class="required text-danger">*</span></label>
                 <input type="text" placeholder="Ingresa el Nombre" class="form-control" name="nombre"
-                    @if($modo=='Editar' || $modo=='Consultar' ) value="{{$pendiente->nombre}}" @else @endif id="nombre"
+                    @if($modo=='Editar' || $modo=='Consultar' ) value="{{$pendiente[0]->nombre}}" @else @endif id="nombre"
                     <?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
                 <br>
                 <div class="row">
@@ -53,7 +51,7 @@ dd($pendiente);
                     <select class="form-control" id="user_id" name="user_id"<?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
                         <option selected>Selecciona a un usuario</option>
                         @foreach($usuarios as $item)
-                            <option value="{{$item -> id}}" @if($modo != 'Crear') @if($item->id == $usuario[0]->user_id) selected @else @endif @endif>{{$item -> name}}</option>
+                            <option value="{{$item -> id}}" @if($modo != 'Crear') @if($item->id == $usuario) selected @else @endif @endif>{{$item -> name}}</option>
 
                         @endforeach
                         
@@ -68,7 +66,7 @@ dd($pendiente);
                             aria-hidden="true" class="required text-danger">*</span></label>
                     <input type="date" name="fecha_entrega" id="fecha_entrega"
                         class="form-control @error('fecha_entrega') border border-danger @enderror"
-                        @if($modo=='Editar' || $modo=='Consultar' ) value="{{$pendiente->fecha_entrega}}" @else @endif
+                        @if($modo=='Editar' || $modo=='Consultar' ) value="{{$pendiente[0]->fecha_entrega}}" @else @endif
                         <?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
 
                 </div>
@@ -80,14 +78,15 @@ dd($pendiente);
                             class="required text-danger">*</span></label>
                     <input type="date" name="fecha_vencimiento" id="fecha_vencimiento"
                         class="form-control @error('fecha_vencimiento') border border-danger @enderror" @if($modo=='Editar'
-                        || $modo=='Consultar' ) value="{{$pendiente->fecha_vencimiento}}" @else @endif
+                        || $modo=='Consultar' ) value="{{$pendiente[0]->fecha_vencimiento}}" @else @endif
                         <?php if ($modo == 'Consultar'){ ?> disabled <?php } ?>>
 
                 </div>
                 </div>
                 <label for="descripcion" class="form-label fs-5 px-0" >Descripcion<span aria-hidden="true"
                             class="required text-danger">*</span></label>
-                    <textarea class="form-control" name="descripcion" id="descripcion" height="400rem" @if ($modo == 'Consultar') disabled @endif> @if($modo=='Editar' || $modo=='Consultar') {{$pendiente->descripcion}} @endif </textarea>
+                    <textarea class="form-control" name="descripcion" id="descripcion" height="400rem" @if ($modo == 'Consultar') disabled @endif> 
+                        @if($modo=='Editar' || $modo=='Consultar') {{$pendiente[0]->descripcion}} @endif </textarea>
                     <div class='row'>
                         <div class='col'>
                             <div class="px-4">

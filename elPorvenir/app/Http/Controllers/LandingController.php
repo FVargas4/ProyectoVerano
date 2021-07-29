@@ -20,6 +20,8 @@ class LandingController extends Controller
     }
 
     function home2 (){
+
+        //Obtener id del usuario
         $usuario = '1';
         //Obtener id del pendiente usando la id del usuario en el login
         $pu = PendientesUsers::select('pendiente_id')->where('user_id','=', $usuario)->get();
@@ -33,9 +35,9 @@ class LandingController extends Controller
         $usuarios = User::select('id', 'name')->get();
 
         /*Pruebas*/
-        //dd($usuarios);
+        //dd($usuario);
 
         /*FinPruebas*/
-        return view('landing.show', compact('pu','prioridades', 'usuarios','pendiente', 'prioridad', 'usuario'));
+        return view('landing.index', compact('pu','prioridades', 'usuarios','pendiente', 'prioridad', 'usuario'));
     }
 }

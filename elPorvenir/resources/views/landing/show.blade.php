@@ -5,11 +5,11 @@
 
 
 
-<form action="{{ url('/pendientes/'.$pu) }}" method="post">
+<form action="{{ url('/landing/'.$pu) }}" method="post">
 
     @csrf 
     {{ method_field('PATCH')}}
-    @include('pendientes.form',['modo'=>'Consultar']);
+    @include('landing.form',['modo'=>'Consultar']);
 
 </form>
 
