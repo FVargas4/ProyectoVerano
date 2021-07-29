@@ -15,7 +15,7 @@ use App\Http\Controllers\InstruccionController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/laravel', function () {
     return view('welcome');
 });
 
@@ -38,4 +38,4 @@ Route::get('/instrucciones/{id}/show', [InstruccionController::class, 'show']);
     }
 });*/
 
-Route::get('/home', [LandingController::class, 'home']);
+Route::get('/', [LandingController::class, 'home2']);
