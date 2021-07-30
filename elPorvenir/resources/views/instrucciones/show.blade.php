@@ -1,7 +1,7 @@
-@extends('layouts.main')
+@extends('layouts.newmain')
 @section('pageTitle', "Consultar Instrucción")
 
-@section('mainContent')
+@section('main')
 
 
 

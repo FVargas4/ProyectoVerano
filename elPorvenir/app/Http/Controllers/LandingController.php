@@ -26,18 +26,24 @@ class LandingController extends Controller
         //Obtener id del pendiente usando la id del usuario en el login
         $pu = PendientesUsers::select('pendiente_id')->where('user_id','=', $usuario)->get();
         //Obtener todo el pendiente con su id 
-        $pendiente = Pendiente::findOrFail($pu);
+        $pendientes = Pendiente::getPendientes($pu);
         //Obtener la prioridad del pendiente
         $prioridad = prioridad_pendientes::select('prioridad_id')->where('pendiente_id', '=', $usuario)->get();
         //Obtener la lista de prioridades del sistema
         $prioridades = Prioridad::select('id', 'nombre')->get();
         //Obtener la lista de usuarios en el sistema
         $usuarios = User::select('id', 'name')->get();
+        //Obtener la prioridad de la instrucción
+        $iu = InstruccionUser::select('instruccion_id')->where('user_id', '=', $usuario)->get();
+        //Obtener id de la instruccion usando la id del usuario en el login
+        $instrucciones = Instruccion::getInstrucciones($iu);
+        
+        
 
         /*Pruebas*/
-        //dd($usuario);
+        //dd($instrucciones);
 
         /*FinPruebas*/
-        return view('landing.index', compact('pu','prioridades', 'usuarios','pendiente', 'prioridad', 'usuario'));
+        return view('landing.index', compact('pu','prioridades', 'usuarios','pendientes', 'prioridad', 'iu', 'instrucciones', 'usuario'));
     }
 }

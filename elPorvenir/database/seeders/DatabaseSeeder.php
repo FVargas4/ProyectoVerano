@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             PrioridadPendientesSeeder::class,
             PendientesUsuariosSeeder::class,
             InstruccionUserSeeder::class,
+            PrioridadInstruccionsSeeder::class,
         ]);
     }
 }

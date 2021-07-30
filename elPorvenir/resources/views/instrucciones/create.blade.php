@@ -1,8 +1,8 @@
-@extends('layouts.main')
+@extends('layouts.newmain')
 
 @section('pageTitle', "Crear Instruccion")
 
-@section('mainContent')
+@section('main')
 
 
 <form action="{{ url('/instrucciones/')}}" method="post">

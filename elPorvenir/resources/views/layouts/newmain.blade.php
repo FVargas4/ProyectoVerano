@@ -15,7 +15,6 @@
         {{-- iconos de google --}}
         <link rel="stylesheet" href="{{ url('css/material-icons.min.css') }}">
     <body>
-        
         <div id="sidebar">
             <div class="toggle-btn">
                 <span>&#9776</span>
@@ -24,16 +23,19 @@
                 <li>
                     <img src="{{asset('img/logoPEP.JPG')}}" alt="logo" class='logo'>
                 </li>
-                <li><a href="{{url('/')}}"> Inicio</a></li>
-                <a href="{{url('/pendientes')}}"><li>Pendientes</li></a>
-                <a href="{{url('/instrucciones')}}"><li>Instrucciones</li></a>
+                <a class="titulo" href="{{url('/')}}"><li>Inicio</li></a>
+                <a class="titulo" href="{{url('/pendientes')}}"><li>Pendientes</li></a>
+                <a class="titulo" href="{{url('/instrucciones')}}"><li>Instrucciones</li></a>
+            </ul>
+            <ul id="down_option">
+                <a><li>Cerrar sesión</li></a>
             </ul>
         </div>
         <div id="main" class='container mt-5'>
             @yield('main')
         </div>
         
-        <script>
+        <script type='text/javascript'>
             const btnToggle = document.querySelector('.toggle-btn');
 
             btnToggle.addEventListener('click', function () {
@@ -42,6 +44,8 @@
             console.log(document.getElementById('sidebar'))
             document.getElementById('main').classList.toggle('active');
             console.log(document.getElementById('main'))
+            document.getElementById('mainTitle').classList.toggle('active');
+            console.log(document.getElementById('mainTitle'))
             });
         </script>
     </body>

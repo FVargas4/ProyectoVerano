@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.newmain')
 @section('pageTitle', "Consultar Pendiente")
 
 @section('mainContent')

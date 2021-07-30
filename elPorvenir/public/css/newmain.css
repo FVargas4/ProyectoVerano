@@ -2,53 +2,79 @@
     margin: 0px;
     padding: 0px;
 }
+
+/*Estilo de la parte principal del sistema*/
 #main{
     position: absolute;
-    
-    left: 220px;
+    left: 15%;
     transition: all 500ms linear;
     text-align: center;
 }
 
+/*Estilo de la barra lateral de navegacion del sistema*/
 #sidebar{
     position:fixed;
-    width: 220px;
+    width: 15%;
     height: 100%;
-    background: #1b1b1b;
+    background: #00098b;
     left: 0px;
     transition: all 500ms linear;
-
-
 }
 
-#sidebar.active {
-    left: -230px;
+/*Estilo del titulo del sistema*/
+#mainTitle{
+    width: 115%;
+    text-align: center;
+    color: #00098b4d;
 }
 
-#main.active {
+#mainTitle.active {
     left: 0px;
+    transition: all 500ms linear;
     width: 100%;
 }
 
-#sidebar ul li{
-    color:rgb(250, 250, 250);
-    list-style: none;
-    padding: 15px 10px;
-    border-bottom: 1px solid rgba(100, 100, 100, .3);
-    font-family: 'Lato', sans-serif;
+/*Cambio de posición de la barra lateral de navegación */
+#sidebar.active {
+    left: -15%;
+}
+
+/*Cambio de posición de la barra lateral de navegación */
+#main.active {
+    left: 16%;
+    width: 100%;
     text-align: center;
 }
 
-#sidebar a {
+/*Estilo de las tablas dentro de la barra lateral de navegación */
+#sidebar ul li{
+    left: 0px;
+    width: 100%;
+    color:rgb(250, 250, 250);
+    list-style: none;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.158);
+    font-family: 'Lato', sans-serif;
+    font-size: large;
+    text-align: left;
+}
+
+/*Estilo de la opción Cerrar Sesión dentro de la barra lateral de navegación */
+#down_option{
+    bottom: 0px;
+}
+
+/*Estilo de los enlaces dentro de la barra lateral de navegación */
+#main a {
     text-decoration: none;
 }
 
-a:hover {
+/*Estilo de los enlaces dentro de la barra lateral de navegación */
+#sidebar, #main a:visited {
     text-decoration: none;
-    background-color: #555;
-    color: white;
-} 
+}
 
+/*EStilo del logo dentro de la barra de navegación*/
 .logo{
     border-radius: 50%;
     display: block;
@@ -58,7 +84,8 @@ a:hover {
 
 #sidebar .toggle-btn {
     position: absolute;
-    left: 240px;
+    left: 110%;
+    height: 20px;
     top: 20px;
     cursor: pointer;
 }
@@ -67,6 +94,14 @@ a:hover {
     display: block;
     width: 40px;
     text-align: center;
-    font-size: 30px;
+    font-size: 38px;
     border: 1px solid #000;
+    border-width: medium;
+    border-radius: 8px;
 }
+
+
+.titulo{
+    color: black;
+}
+
