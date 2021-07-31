@@ -9,7 +9,7 @@
 
     @csrf 
     {{ method_field('PATCH')}}
-    @include('instrucciones.form',['modo'=>'Consultar']);
+    @include('instrucciones.form',['modo'=>'Consultar'])
 
 </form>
 

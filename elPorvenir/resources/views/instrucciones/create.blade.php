@@ -8,7 +8,7 @@
 <form action="{{ url('/instrucciones/')}}" method="post">
 
 @csrf
-@include('instrucciones.form',['modo'=>'Crear']);
+@include('instrucciones.form',['modo'=>'Crear'])
 
 
 </form>

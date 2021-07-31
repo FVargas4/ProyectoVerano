@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('pageTitle')</title></head>
         <!--Custom CSS-->
         <link rel="stylesheet" href="{{ url('css/newmain.css')}}">
@@ -14,28 +14,36 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         {{-- iconos de google --}}
         <link rel="stylesheet" href="{{ url('css/material-icons.min.css') }}">
-    <body style="background-color: lightgray;">
-        <div id="sidebar" class='bg-dark'>
+    
+    
+    <body id="body">
+        <div id="sidebar">
             <div class="toggle-btn">
                 <span>&#9776</span>
             </div>
-            <ul>
-                <li>
-                    <img src="{{asset('img/logoPEP.JPG')}}" alt="logo" class='logo'>
-                </li>
-                <a class="titulo" href="{{url('/')}}"><li>Inicio</li></a>
-                <a class="titulo" href="{{url('/pendientes')}}"><li>Pendientes</li></a>
-                <a class="titulo" href="{{url('/instrucciones')}}"><li>Instrucciones</li></a>
-            </ul>
-            <ul id="down_option">
-                <a><li>Cerrar sesión</li></a>
-            </ul>
+            <div id="opciones">
+                <ul>
+                    <li>
+                        <img src="{{asset('img/logoPEP.JPG')}}" alt="logo" class='logo'>
+                    </li>
+                    <a class="titulo" href="{{url('/')}}"><li>Inicio</li></a>
+                    <a class="titulo" href="{{url('/pendientes')}}"><li>Pendientes</li></a>
+                    <a class="titulo" href="{{url('/instrucciones')}}"><li>Instrucciones</li></a>
+                </ul>
+                <ul id="down_option">
+                    <a><li>Cerrar sesión</li></a>
+                </ul>
+            </div>
         </div>
         <div id="main" class='container mt-5'>
+            @yield('upContent')
             @yield('main')
         </div>
-        
-        <script type='text/javascript'>
+ 
+    </body>
+
+           
+    <script type='text/javascript'>
             const btnToggle = document.querySelector('.toggle-btn');
 
             btnToggle.addEventListener('click', function () {
@@ -47,6 +55,18 @@
             document.getElementById('mainTitle').classList.toggle('active');
             console.log(document.getElementById('mainTitle'))
             });
-        </script>
-    </body>
+    </script>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="{{ URL::asset('js/index.js') }}"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </html>
