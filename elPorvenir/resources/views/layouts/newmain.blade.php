@@ -14,8 +14,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         {{-- iconos de google --}}
         <link rel="stylesheet" href="{{ url('css/material-icons.min.css') }}">
-    <body>
-        <div id="sidebar">
+    <body style="background-color: lightgray;">
+        <div id="sidebar" class='bg-dark'>
             <div class="toggle-btn">
                 <span>&#9776</span>
             </div>

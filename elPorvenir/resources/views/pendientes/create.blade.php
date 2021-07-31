@@ -1,8 +1,8 @@
-@extends('layouts.main')
+@extends('layouts.newmain')
 
 @section('pageTitle', "Crear Pendiente")
 
-@section('mainContent')
+@section('main')
 
 
 <form action="{{ url('/pendientes/')}}" method="post">
