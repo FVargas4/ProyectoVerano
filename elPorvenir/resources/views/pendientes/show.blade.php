@@ -1,7 +1,7 @@
-@extends('layouts.main')
+@extends('layouts.newmain')
 @section('pageTitle', "Consultar Pendiente")
 
-@section('mainContent')
+@section('main')
 
 
 
@@ -9,7 +9,7 @@
 
     @csrf 
     {{ method_field('PATCH')}}
-    @include('pendientes.form',['modo'=>'Consultar']);
+    @include('pendientes.form',['modo'=>'Consultar'])
 
 </form>
 

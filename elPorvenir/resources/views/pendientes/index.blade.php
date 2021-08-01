@@ -23,7 +23,7 @@
             <div class="table-responsive">    
                 <br>
 
-        <div class="d-flex justify-content-between align-items-center border-bottom my-3">
+        <div class="d-flex justify-content-between align-items-center border-bottom my-3" id="tabla">
             <div class="me-auto p-2">
                 <h1 class="text-left fs-4">Lista de pendientes</h1>
             </div>
@@ -42,7 +42,7 @@
         </div>
     
         @if ($pendientes->count())
-        <table class="table table-hover px-3">
+        <table class="table table-hover px-3" id="tabla">
 
             <thead>
                 <tr>
