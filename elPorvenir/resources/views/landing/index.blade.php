@@ -7,7 +7,7 @@
 
         @if ($pendientes)
             <h1>Tus <a class="titulo" href='pendientes'>Pendientes</a></h1>
-            <table class="table table-hover m-3 pb-3" width="100">
+            <table class="table table-hover m-3 pb-3" id="tabla">
                 <thead>
                         <tr>
                             <th class="text-wrap" scope="col">Nombre</th>
@@ -52,12 +52,12 @@
                     <h4 class="text-center m-3">No hay pendientes disponibles</h4>
                 </div>
             @endif
-            <div class="my-5">
-                <hr>
+            <div class="m-5">
+                <hr width="800" id="separador">
             </div>
             <h1>Tus <a class="titulo" href='instrucciones'>Instrucciones</a></h1>
                 @if ($instrucciones)
-                    <table class="table table-hover m-3" width="100">
+                    <table class="table table-hover m-3" id="tabla">
 
                         <thead>
                             <tr>

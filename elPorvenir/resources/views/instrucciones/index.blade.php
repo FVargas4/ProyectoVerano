@@ -12,7 +12,7 @@
     </div>
 </div>
 @endif
-    <div class='bg-white container my-5 p-3 bg-light shadow-sm bg-body rounded'>
+    <div class='bg-white container center my-5 p-3 bg-light shadow-sm bg-body rounded'>
         <div class="d-flex justify-content-start my-3"> 
         </div>
         <h1 class='text-center'>Instrucciones</h1>
@@ -20,7 +20,7 @@
             <div class="table-responsive">    
                 <br>
 
-        <div class="d-flex justify-content-between align-items-center border-bottom my-3">
+        <div class="d-flex justify-content-between align-items-center border-bottom my-3" id="tabla">
             <div class="me-auto p-2">
                 <h1 class="text-left fs-4">Lista de Instrucciones</h1>
             </div>
@@ -39,7 +39,7 @@
         </div>
     
         @if ($instrucciones->count())
-        <table class="table table-hover px-3">
+        <table class="table center table-hover px-3" id="tabla">
 
             <thead>
                 <tr>

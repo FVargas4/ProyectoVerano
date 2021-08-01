@@ -27,6 +27,14 @@
     transition: all 500ms linear;
 }
 
+#tabla{
+    width: 90%;
+}
+
+#separador {
+    left: 15%;
+}
+
 /*Estilo del titulo del sistema*/
 #mainTitle{
     width: 115%;
