@@ -12,7 +12,7 @@
     </div>
 </div>
 @endif
-    <div class='bg-white container my-5 p-3 bg-light shadow-sm  bg-body rounded'>
+    <div class='bg-white container my-5 p-3 bg-light shadow-sm bg-body rounded'>
         <div class="d-flex justify-content-start my-3"> 
         </div>
         <h1 class='text-center'>Instrucciones</h1>
