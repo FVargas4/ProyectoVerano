@@ -52,7 +52,7 @@
                     <h4 class="text-center m-3">No hay pendientes disponibles</h4>
                 </div>
             @endif
-            <div class="m-5">
+            <div class="m-5 px-5">
                 <hr width="800" id="separador">
             </div>
             <h1>Tus <a class="titulo" href='instrucciones'>Instrucciones</a></h1>

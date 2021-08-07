@@ -31,7 +31,9 @@
                     <a class="titulo" href="{{url('/instrucciones')}}"><li>Instrucciones</li></a>
                 </ul>
                 <ul id="down_option">
-                    <a><li>Cerrar sesión</li></a>
+                    <form method="POST">
+                    <a href="{{url('/logout')}}"><li>Cerrar sesión</li></a>
+                    </form>
                 </ul>
             </div>
         </div>

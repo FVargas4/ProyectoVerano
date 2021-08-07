@@ -19,13 +19,16 @@ Route::get('/laravel', function () {
     return view('welcome');
 });
 
+//Rutas para el inicio de la página
+Route::get('/', [LandingController::class, 'home2'])->middleware('auth');
+
 //Rutas para el CRUD de pendientes
-Route::resource('/pendientes', PendienteController::class);
-Route::get('/pendientes/{id}/show', [PendienteController::class, 'show']);
+Route::resource('/pendientes', PendienteController::class)->middleware('auth');
+Route::get('/pendientes/{id}/show', [PendienteController::class, 'show'])->middleware('auth');
 
 //Rutas para el CRUD de instrucciones
-Route::resource('/instrucciones', InstruccionController::class);
-Route::get('/instrucciones/{id}/show', [InstruccionController::class, 'show']);
+Route::resource('/instrucciones', InstruccionController::class)->middleware('auth');
+Route::get('/instrucciones/{id}/show', [InstruccionController::class, 'show'])->middleware('auth');
 
 
 
@@ -37,5 +40,3 @@ Route::get('/instrucciones/{id}/show', [InstruccionController::class, 'show']);
         die("Error" . $e);
     }
 });*/
-
-Route::get('/', [LandingController::class, 'home2']);
