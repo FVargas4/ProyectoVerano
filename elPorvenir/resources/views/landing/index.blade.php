@@ -10,6 +10,7 @@
             <table class="table table-hover m-3 pb-3" id="tabla">
                 <thead>
                         <tr>
+                            <th class="text-wrap" scope="col">Prioridad</th>
                             <th class="text-wrap" scope="col">Nombre</th>
                             <th class="text-wrap" scope="col">Fecha Asignada</th>
                             <th class="text-wrap" scope="col">Fecha Vencimiento</th>
@@ -23,9 +24,18 @@
                         @php
                             $dateEntrega = date_create($item->fecha_entrega);
                             $dateVencimiento = date_create($item->fecha_vencimiento);
-
                         @endphp
+                        @switch($prioridad)
+                            @case('1')
+                                $colorPendiente = 'FF0000';
+                            @case('2')
+                                $colorPendiente = 'FFFF00';
+                            @case('3')
+                                $colorPendiente = '00FF00';
+                        @endswitch
+                        
                         <tr scope="row">
+                            <td class="fs-6 text-wrap">{{ $colorPendiente}}</td>
                             <td class="fs-6 text-wrap">{{ $item->nombre }}</td>
                             <td class="fs-6 text-wrap">{{ date_format($dateEntrega, "d/M/Y")}}</td>
                             <td class="fs-6 text-wrap">{{ date_format($dateVencimiento, "d/M/Y")}}</td>
@@ -61,6 +71,7 @@
 
                         <thead>
                             <tr>
+                                <th class="text-wrap" scope="col">Prioridad</th>
                                 <th class="text-wrap" scope="col">Nombre</th>
                                 <th class="text-wrap" scope="col">Fecha Asignada</th>
                                 <th class="text-wrap" scope="col">Fecha Vencimiento</th>
@@ -73,9 +84,9 @@
                             @php
                                 $dateEntrega = date_create($item->fecha_entrega);
                                 $dateVencimiento = date_create($item->fecha_vencimiento);
-
                             @endphp
                             <tr scope="row">
+                                <td class="fs-6 text-wrap">{{ $colorInstruccion }}</td>
                                 <td class="fs-6 text-wrap">{{ $item->nombre }}</td>
                                 <td class="fs-6 text-wrap">{{ date_format($dateEntrega, "d/M/Y")}}</td>
                                 <td class="fs-6 text-wrap">{{ date_format($dateVencimiento, "d/M/Y")}}</td>

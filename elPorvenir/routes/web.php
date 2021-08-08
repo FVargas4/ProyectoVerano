@@ -15,6 +15,7 @@ use App\Http\Controllers\InstruccionController;
 |
 */
 
+//Ruta para ver el inicio predeterminado de Laravel 
 Route::get('/laravel', function () {
     return view('welcome');
 });
@@ -31,7 +32,7 @@ Route::resource('/instrucciones', InstruccionController::class)->middleware('aut
 Route::get('/instrucciones/{id}/show', [InstruccionController::class, 'show'])->middleware('auth');
 
 
-
+//Ruta para comprobar la conexión con la base de datos
 /*Route::get('test-db', function(){
     try{
        DB::connection() -> getPdo();
@@ -40,3 +41,8 @@ Route::get('/instrucciones/{id}/show', [InstruccionController::class, 'show'])->
         die("Error" . $e);
     }
 });*/
+
+//Ruta para hashear una contraseña
+Route::get('/hash/{contrasena}', function($contra){
+    return Hash::make($contra);
+});
