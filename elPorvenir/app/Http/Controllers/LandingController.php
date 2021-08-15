@@ -42,33 +42,43 @@ class LandingController extends Controller
         //Obtener id de la instruccion usando la id del usuario en el login
         $instrucciones = Instruccion::getInstrucciones($iu);
         //Obtener la prioridad del pendiente
-        $prioridad = prioridad_pendientes::select('prioridad_id')->where('pendiente_id', '=', $pu)->get();
+        $prioridad = prioridad_pendientes::select('prioridad_id')->where('pendiente_id', '=', $pu[0]->pendiente_id)->get();
         //Obtener la prioridad del pendiente
-        $prioridadI = prioridad_instruccions::select('prioridad_id')->where('instruccion_id', '=', $iu)->get();
-        //Obtener la lista de usuarios en el sistema
+        $prioridadI = prioridad_instruccions::select('prioridad_id')->where('instruccion_id', '=', 
+            $iu[0]->instruccion_id)->get();
+
+        //Obtener la lista de usuarios (nombre y id) en el sistema
         $usuarios = User::select('id', 'name')->get();
         //Obtener el color de la prioridad del pendiente en base a la clave de la prioridad
         switch($prioridad[0]->prioridad_id){
             case(1):
+                //Prioridad alta = Rojo
                 $colorPendiente = 'FF0000';
             case(2):
+                //Prioridad media = Amarillo
                 $colorPendiente = 'FFFF00';
             case(3):
+                //Prioridad baja = Verde
                 $colorPendiente = '00FF00';
         }
         //Obtener el color de la prioridad de la instrucción en base a la clave de la prioridad
-        switch($prioridadI){
-            case(1):
+        switch($prioridadI[0]->prioridad_id){
+            case('1'):
+                //Prioridad alta = Rojo
                 $colorInstruccion = 'FF0000';
-            case(2):
+            case('2'):
+                //Prioridad media = Amarillo
                 $colorInstruccion = 'FFFF00';
-            case(3):
+            case('3'):
+                //Prioridad baja = Verde
                 $colorInstruccion = '00FF00';
         }
         /*Pruebas*/
-        //dd($iu);
+        //dd($user);
 
         /*FinPruebas*/
-        return view('landing.index', compact('usuario', 'pu', 'pendientes', 'iu', 'instrucciones', 'usuarios', 'colorPendiente', 'colorInstruccion'));
+        return view('landing.index', 
+        compact('usuario', 'pu', 'pendientes', 'iu', 'instrucciones', 'prioridad', 'prioridadI', 
+        'colorPendiente', 'colorInstruccion','usuarios'));
     }
 }

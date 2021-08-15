@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PendienteController;
 use App\Http\Controllers\InstruccionController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +23,11 @@ Route::get('/laravel', function () {
 
 //Rutas para el inicio de la página
 Route::get('/', [LandingController::class, 'home2'])->middleware('auth');
+
+
+//Rutas para el CRUD de usuarios
+Route::resource('/usuarios', UserController::class)->middleware('auth');
+Route::get('/usuarios/{id}/show', [UserController::class, 'show'])->middleware('auth');
 
 //Rutas para el CRUD de pendientes
 Route::resource('/pendientes', PendienteController::class)->middleware('auth');

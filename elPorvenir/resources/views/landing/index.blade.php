@@ -25,17 +25,8 @@
                             $dateEntrega = date_create($item->fecha_entrega);
                             $dateVencimiento = date_create($item->fecha_vencimiento);
                         @endphp
-                        @switch($prioridad)
-                            @case('1')
-                                $colorPendiente = 'FF0000';
-                            @case('2')
-                                $colorPendiente = 'FFFF00';
-                            @case('3')
-                                $colorPendiente = '00FF00';
-                        @endswitch
-                        
                         <tr scope="row">
-                            <td class="fs-6 text-wrap">{{ $colorPendiente}}</td>
+                            <td class="fs-6 text-wrap">{{$colorPendiente}}</td>
                             <td class="fs-6 text-wrap">{{ $item->nombre }}</td>
                             <td class="fs-6 text-wrap">{{ date_format($dateEntrega, "d/M/Y")}}</td>
                             <td class="fs-6 text-wrap">{{ date_format($dateVencimiento, "d/M/Y")}}</td>
@@ -86,7 +77,7 @@
                                 $dateVencimiento = date_create($item->fecha_vencimiento);
                             @endphp
                             <tr scope="row">
-                                <td class="fs-6 text-wrap">{{ $colorInstruccion }}</td>
+                                <td class="fs-6 text-wrap">{{$colorInstruccion}}</td>
                                 <td class="fs-6 text-wrap">{{ $item->nombre }}</td>
                                 <td class="fs-6 text-wrap">{{ date_format($dateEntrega, "d/M/Y")}}</td>
                                 <td class="fs-6 text-wrap">{{ date_format($dateVencimiento, "d/M/Y")}}</td>

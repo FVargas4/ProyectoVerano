@@ -29,6 +29,7 @@
                     <a class="titulo" href="{{url('/')}}"><li>Inicio</li></a>
                     <a class="titulo" href="{{url('/pendientes')}}"><li>Pendientes</li></a>
                     <a class="titulo" href="{{url('/instrucciones')}}"><li>Instrucciones</li></a>
+                    <a class="titulo" href="{{url('/usuarios')}}"><li>Usuarios</li></a>
                 </ul>
                 <ul id="down_option">
                     <form method="POST">
